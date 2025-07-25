@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Futebol - Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+      margin: 0;
+    }
+
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      background-color: #ddd;
+    }
+
+    .tab {
+      padding: 15px 25px;
+      cursor: pointer;
+      background-color: #ccc;
+      border: 1px solid #999;
+      border-bottom: none;
+      font-weight: bold;
+    }
+
+    .tab.active {
+      background-color: white;
+      border-top: 3px solid #007bff;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background-color: white;
+      border: 1px solid #999;
+      border-top: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Simulador de Futebol - Confederações</h1>
+
+<div class="tab-container">
+  <div class="tab active" data-tab="afc">AFC</div>
+  <div class="tab" data-tab="caf">CAF</div>
+  <div class="tab" data-tab="concacaf">CONCACAF</div>
+  <div class="tab" data-tab="conmebol">CONMEBOL</div>
+  <div class="tab" data-tab="ofc">OFC</div>
+  <div class="tab" data-tab="uefa">UEFA</div>
+</div>
+
+<div id="afc" class="tab-content active">
+  <!-- Conteúdo da AFC -->
+</div>
+<div id="caf" class="tab-content">
+  <!-- Conteúdo da CAF -->
+</div>
+<div id="concacaf" class="tab-content">
+  <!-- Conteúdo da CONCACAF -->
+</div>
+<div id="conmebol" class="tab-content">
+  <!-- Conteúdo da CONMEBOL -->
+</div>
+<div id="ofc" class="tab-content">
+  <!-- Conteúdo da OFC -->
+</div>
+<div id="uefa" class="tab-content">
+  <!-- Conteúdo da UEFA -->
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const contents = document.querySelectorAll('.tab-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
